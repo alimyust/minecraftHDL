@@ -1,0 +1,14 @@
+# Read your Verilog design
+read_verilog test_adder.v
+
+# Perform basic synthesis
+synth -top my_main_module
+
+# Map all combinational logic to NOR gates
+abc -g NOR
+
+# Clean up unused wires and cells
+clean
+
+# Export to a Python-friendly JSON netlist
+write_json netlist.json
